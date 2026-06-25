@@ -52,7 +52,7 @@ async def deduct_optimistic(req: DeductRequest, db: AsyncSession = Depends(get_d
 
         current_version = user.version
 
-        # 저장 시점에 version이 그대로인지 확인 — 달라지면 누군가 먼저 수정한 것
+        # 저장 시점에 version이 그대로인지 확인 — 달라지면 누군가 먼저 수정한 것 -> Optimistic lock 
         result = await db.execute(
             update(User)
             .where(User.id == req.user_id, User.version == current_version)
