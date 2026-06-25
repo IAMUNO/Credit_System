@@ -23,6 +23,9 @@ PIPENV_VENV_IN_PROJECT=1 pipenv run python tests/race_condition.py
 
 # Pessimistic vs Optimistic Lock 벤치마크
 PIPENV_VENV_IN_PROJECT=1 pipenv run python tests/benchmark.py
+
+# 인덱스 학습 (10만 건 insert + EXPLAIN 비교)
+PIPENV_VENV_IN_PROJECT=1 pipenv run python tests/index_study.py
 ```
 
 ## 아키텍처
@@ -60,7 +63,7 @@ DB 연결 (app/database.py)
 |------|------|------|
 | Week 1 | Race Condition 확인 (Lock 없는 코드) | ✅ 완료 |
 | Week 2 | Pessimistic Lock, Optimistic Lock, idempotency_key | ✅ 완료 |
-| Week 3 | 인덱스 (EXPLAIN, Covering Index) | 🔜 |
+| Week 3 | 인덱스 (EXPLAIN, Covering Index) | ✅ 완료 |
 | Week 4 | Redis 캐싱, 분산 락 | 🔜 |
 | Week 5 | 네트워크 (WebSocket, REST) | 🔜 |
 | Week 6 | pytest, README 마무리 | 🔜 |
