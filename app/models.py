@@ -10,6 +10,7 @@ class User(Base):
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     balance: Mapped[float] = mapped_column(Numeric(18, 2), nullable=False, default=0)
+    version: Mapped[int] = mapped_column(BigInteger, nullable=False, default=0)
 
     transactions: Mapped[list["Transaction"]] = relationship(back_populates="user")
 

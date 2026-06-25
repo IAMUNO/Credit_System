@@ -12,8 +12,11 @@ AMOUNT = 100
 COUNT = 100
 
 
+ENDPOINT = "/credits/deduct/optimistic"
+
+
 async def deduct(client: httpx.AsyncClient, i: int):
-    res = await client.post("/credits/deduct", json={"user_id": USER_ID, "amount": AMOUNT})
+    res = await client.post(ENDPOINT, json={"user_id": USER_ID, "amount": AMOUNT})
     return res.status_code
 
 
