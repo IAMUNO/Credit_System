@@ -19,7 +19,7 @@ class DeductRequest(BaseModel):
 # Week 1: 의도적으로 Lock 없이 작성 — Race Condition 확인용
 @router.post("/deduct")
 async def deduct(req: DeductRequest, db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(User).where(User.id == req.user_id))
+    result = await db.execute(select(User).where(User.id == req.user_id).with_for_update())
     user = result.scalar_one_or_none()
 
     if user is None:
