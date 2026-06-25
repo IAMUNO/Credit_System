@@ -84,7 +84,7 @@ async def run_explains():
         await conn.execute(
             text(
                 "CREATE INDEX idx_transactions_user_created "
-                "ON transactions (user_id, created_at)"
+                "ON transactions (user_id, created_at)" 
             )
         )
     print("  → 복합 인덱스 (user_id, created_at) 생성 완료\n")
